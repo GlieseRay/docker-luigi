@@ -4,11 +4,6 @@ LABEL       Description="Docker image for Luigi central scheduler."
 ENV         DEBIAN_FRONTEND noninteractive
 
 #
-# Setup proxy (optional)
-#
-RUN        echo 'Acquire::http::Proxy "http://172.26.10.18:3142";' > /etc/apt/apt.conf.d/02proxy
-
-#
 # Install packages
 #
 RUN         set -x \
