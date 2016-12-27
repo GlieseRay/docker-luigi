@@ -6,7 +6,10 @@ services:
   # Luigi Service
   #
 
-  luigi:
+  luigid:
     build: .
+    entrypoint: luigid
+    volumes:
+      - ./config/luigi.cfg:./luigi.cfg
     ports: 
-      - "8082:8082"
+      - "0.0.0.0:8082:8082"

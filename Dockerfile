@@ -24,28 +24,19 @@ RUN         set -x \
             && apt-get install -y --no-install-recommends \
                 locales \
                 python-pip \
-		python-setuptools \
-		sqlite3
+				python-setuptools \
+				sqlite3
 
 RUN         set -x \
-	    && pip install wheel
+	        && pip install wheel
 
 RUN         set -x \
             && pip install sqlalchemy luigi
 
 
-ENV	    LUIGI_HOME=/luigi
+ENV	        LUIGI_HOME=/luigi
 RUN         mkdir -p $LUIGI_HOME
-
-# Set config
-COPY	    config/luigi.cfg $LUIGI_HOME
-ENV         LUIGI_CONFIG_PATH $LUIGI_HOME/luigi.cfg
-
 WORKDIR     $LUIGI_HOME
-
-ENTRYPOINT  ["luigid"]
-
-EXPOSE 8082
 
 
 
