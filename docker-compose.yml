@@ -10,6 +10,8 @@ services:
     build: .
     entrypoint: luigid
     volumes:
-      - ./config/luigi.cfg:./luigi.cfg
-    ports: 
+      - ./config/luigi.cfg:/luigi/luigid.cfg
+    environment:
+      LUIGI_CONFIG_PATH: /luigi/luigid.cfg
+    ports:
       - "0.0.0.0:8082:8082"
