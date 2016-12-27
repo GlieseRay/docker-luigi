@@ -36,9 +36,9 @@ RUN         set -x \
 
 ENV	        LUIGI_HOME=/luigi
 RUN         mkdir -p $LUIGI_HOME
+
+VOLUME      $LUIGI_HOME
+
 WORKDIR     $LUIGI_HOME
-
-
-
 
 
