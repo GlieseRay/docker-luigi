@@ -1,5 +1,9 @@
 version: '2.1'
 
+volumes:
+  luigid-data:
+    driver: local
+
 services:
 
   #
@@ -10,6 +14,7 @@ services:
     build: .
     entrypoint: luigid
     volumes:
+      - luigid-data:/luigi
       - ./config/luigi.cfg:/luigi/luigid.cfg
     environment:
       LUIGI_CONFIG_PATH: /luigi/luigid.cfg
